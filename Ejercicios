@@ -511,65 +511,70 @@ Funcion Ejercicio22
 	
 FinFuncion
 
-Funcion Ejercicio23
+//23) Realizar un programa que ingrese un número presentar un mensaje equivalente a los días de la semana.
+//Entrada: numero=?(leer)
+//Proceso:  Si numero >= 1 Y numero <= 7 Entonces
+//Escribir  dia[numero]
+//Sino
+	//Escribir "Número fuera de rango. "
+//FinSi
+//Salida: Escribir "El día equivalente al número ", numero, " es ", dia[numero] o 
+//Escribir "Número fuera de rango. Debe ser del 1 al 7."
+funcion semana
+	Dimension dia[7] 
+    dia[1] = "Lunes"
+    dia[2] = "Martes"
+    dia[3] = "Miércoles"
+    dia[4] = "Jueves"
+    dia[5] = "Viernes"
+    dia[6] = "Sábado"
+    dia[7] = "Domingo"
 	
-	Definir dia Como Entero
-	Escribir "Escribe un numero del 1 al 7"
-	Leer dia
+    Escribir "Ingrese un número del 1 al 7:"
+    Leer numero
 	
-	Segun dia Hacer
-		1:
-			Escribir "El dia al que pertece el numero es el: Lunes"
-		2:
-			Escribir "El dia al que pertece el numero es el: Martes"
-		3:
-			Escribir "El dia al que pertece el numero es el: Miercoles"
-		4:
-			Escribir "El dia al que pertece el numero es el: Jueves"
-		5:
-			Escribir "El dia al que pertece el numero es el: Viernes"
-		6:
-			Escribir "El dia al que pertece el numero es el: Sabado"
-		7:
-			Escribir "El dia al que pertece el numero es el: Domingo"
-		De Otro Modo:
-			Escribir "Error"
-	Fin Segun
+    Si numero >= 1 Y numero <= 7 Entonces
+        Escribir "El día equivalente al número ", numero, " es ", dia[numero]
+    Sino
+        Escribir "Número fuera de rango. Debe ser del 1 al 7."
+    FinSi
 FinFuncion
 
-Funcion Ejercicio24
+//24) Realizar un programa que ingrese un número presentar un mensaje equivalente a los
+//nombres de los meses del año
+//entrada: numero=?(leer)
+//proceso: Si numero >= 1 Y numero <= 12 Entonces
+//Escribir  mes[numero]
+//Sino
+	//Escribir "Número fuera de rango"
+//FinSi
+//salida:
+//Escribir "El mes equivalente al número ", numero, " es ", mes[numero]
+// o Escribir "Número fuera de rango. Debe ser del 1 al 12."
+
+funcion año
+	Dimension mes[12] 
+    mes[1] = "Enero"
+    mes[2] = "Febrero"
+    mes[3] = "Marzo"
+    mes[4] = "Abril"
+    mes[5] = "Mayo"
+    mes[6] = "Junio"
+    mes[7] = "Julio"
+	mes[8] = "Agosto"
+	mes[9] = "Septiembre"
+    mes[10] = "Octubre"
+    mes[11] = "Noviembre"
+	mes[12] = "Diciembre"
+
+    Escribir "Ingrese un número del 1 al 12:"
+    Leer numero
 	
-	Definir num Como Entero
-	Escribir "Ingrese un numero del 1 al 12"
-	Leer num 
-	
-	Segun num Hacer
-		1:
-			Escribir "Enero"
-		2:
-			Escribir "Febrero"
-		3:
-			Escribir "Marzo"
-		4:
-			Escribir "Abril"
-		5:
-			Escribir "Mayo"
-		6:
-			Escribir "Junio"
-		7:
-			Escribir "Julio"
-		8:
-			Escribir "Agosto"
-		9:
-			Escribir "Septiembre"
-		10:
-			Escribir "Octubre"
-		11:
-			Escribir "Noviembre"
-		12:
-			Escribir "Diciembre"	
-	FinSegun
-	
+    Si numero >= 1 Y numero <= 12 Entonces
+        Escribir "El mes equivalente al número ", numero, " es ", mes[numero]
+    Sino
+        Escribir "Número fuera de rango. Debe ser del 1 al 12."
+    FinSi
 FinFuncion
 
 Funcion Ejercicio25
@@ -711,6 +716,289 @@ Funcion Ejercicio30
 	
 FinFuncion
 
+//31) Se dispone de las calificaciones de n alumnos del primer semestre de la carrera de software de la unemi. 
+//Se tiene la nota final y la asignatura('logica','requerimientos','calculos'). Se pide el promedio de
+//cada asignatura y el promedio general de todas las asignaturas de los alumnos del primer semestre.
+//entrada:nota_final=?(leer); notaLogica=?(leer);notaRequerimientos=?(leer);notaCalculos=?(leer)
+//proceso: Para i <- 1 Hasta n Hacer
+//Escribir "Alumno ", i
+//Escribir "Ingrese la nota de Lógica:"
+//Leer notaLogica
+//sumaLogica = sumaLogica + notaLogica
+
+//Escribir "Ingrese la nota de Requerimientos:"
+//Leer notaRequerimientos
+//sumaRequerimientos = sumaRequerimientos + notaRequerimientos
+//
+//Escribir "Ingrese la nota de Cálculos:"
+//Leer notaCalculos
+//sumaCalculos= sumaCalculos + notaCalculos
+//sumaTotal= sumaTotal + notaLogica + notaRequerimientos + notaCalculos
+//FinPara
+//
+//promedioLogica = sumaLogica / n
+//promedioRequerimientos = sumaRequerimientos / n
+//promedioCalculos = sumaCalculos / n
+//promedioTotal = ( sumaTotal / (n * 3))
+//salida:    
+//Escribir promedioLogica
+//Escribir promedioRequerimientos
+//Escribir promedioCalculos
+//Escribir promedioTotal
+funcion PromedioAsignaturas
+	Definir n Como Entero
+    Definir sumaLogica, sumaRequerimientos, sumaCalculos, sumaTotal Como Real
+    Definir promedioLogica, promedioRequerimientos, promedioCalculos, promedioTotal Como Real
+	n=0;sumaLogica = 0.0;sumaRequerimientos = 0.0;sumaCalculos = 0.0;sumaTotal = 0.0
+    
+	Escribir "Ingrese el número de alumnos:"
+    Leer n
+    Para i <- 1 Hasta n Hacer
+        Escribir "Alumno ", i
+        Escribir "Ingrese la nota de Lógica:"
+        Leer notaLogica
+        sumaLogica = sumaLogica + notaLogica
+		
+        Escribir "Ingrese la nota de Requerimientos:"
+        Leer notaRequerimientos
+        sumaRequerimientos = sumaRequerimientos + notaRequerimientos
+		
+        Escribir "Ingrese la nota de Cálculos:"
+        Leer notaCalculos
+        sumaCalculos= sumaCalculos + notaCalculos
+        sumaTotal= sumaTotal + notaLogica + notaRequerimientos + notaCalculos
+    FinPara
+	
+    promedioLogica = sumaLogica / n
+    promedioRequerimientos = sumaRequerimientos / n
+    promedioCalculos = sumaCalculos / n
+    promedioTotal = trunc( sumaTotal / (n * 3))
+	
+    Escribir "Promedio de Lógica:", promedioLogica
+    Escribir "Promedio de Requerimientos:", promedioRequerimientos
+    Escribir "Promedio de Cálculos:", promedioCalculos
+    Escribir "Promedio General de todas las asignaturas:", promedioTotal
+FinFuncion
+//---------------------------------------------------------------------------------------------------------------
+//32) Se dispone de los sueldos y categorias de los profesores de la unemi.
+//segun la categoria estos reciben un bono adicional de porcentaje al sueldo:
+//	categoria="Auxiliar" incremento del 10%
+//	categoria="Agregado" incremento del 20%
+//	categoria="principal" incremento del 50%
+//Se pide obtener el promedio de los sueldos y del bono de cada categoria
+//Entrada: n=?(leer);sueldo=?(leer);categoria=""
+//Proceso:
+//Si categoria = "Auxiliar" Entonces
+//sueldos_auxiliar = sueldos_auxiliar + sueldo
+//bono_auxiliar = bono_auxiliar + (sueldo * 0.10)
+//Sino Si categoria = "Agregado" Entonces
+//		sueldos_agregado = sueldos_agregado + sueldo
+//		bono_agregado = bono_agregado + (sueldo * 0.20)
+//	Sino Si categoria = "Principal" Entonces
+//			sueldos_principal = sueldos_principal + sueldo
+//			bono_principal = bono_principal + (sueldo * 0.50)
+//		FinSi
+//	FinSi
+//FinSi
+//Fin Para
+//promedioSueldosAuxiliar = sueldos_auxiliar /n
+//promedioSueldosAgregado = sueldos_agregado /n
+//promedioSueldosPrincipal = sueldos_principal /n
+//promedioBonoAuxiliar = bono_auxiliar/n 
+//promedioBonoAgregado = bono_agregado /n
+//promedioBonoPrincipal = bono_principal /n
+//Salida:
+//Escribir  promedioSueldosAuxiliar
+//Escribir  promedioSueldosAgregado
+//Escribir  promedioSueldosPrincipal
+//Escribir  promedioBonoAuxiliar
+//Escribir  promedioBonoAgregado
+//Escribir  promedioBonoPrincipal
+
+funcion sueldos_bono
+	Definir n Como Entero
+	Definir sueldos_auxiliar, sueldos_agregado, sueldos_principal Como Real
+    Definir bono_auxiliar, bono_agregado, bono_principal Como Real
+    Definir promedioSueldosAuxiliar, promedioSueldosAgregado, promedioSueldosPrincipal Como Real
+    Definir promedioBonoAuxiliar, promedioBonoAgregado, promedioBonoPrincipal Como Real
+	
+	n=0; categoria=""; sueldos_auxiliar = 0;sueldos_agregado= 0;sueldos_principal = 0;
+	bono_auxiliar= 0;bono_agregado = 0;bono_principal = 0
+    Escribir "Ingrese el número de profesores:"
+    Leer n
+    Para i=1 Hasta n Con Paso 1 Hacer
+		Escribir "Profesor ", i
+        Escribir "Ingrese el sueldo:"
+        Leer sueldo
+        Escribir "Ingrese la categoría (Auxiliar, Agregado o Principal):"
+        Leer categoria
+		Si categoria = "Auxiliar" Entonces
+            sueldos_auxiliar = sueldos_auxiliar + sueldo
+            bono_auxiliar = bono_auxiliar + (sueldo * 0.10)
+        Sino Si categoria = "Agregado" Entonces
+				sueldos_agregado = sueldos_agregado + sueldo
+				bono_agregado = bono_agregado + (sueldo * 0.20)
+			Sino Si categoria = "Principal" Entonces
+					sueldos_principal = sueldos_principal + sueldo
+					bono_principal = bono_principal + (sueldo * 0.50)
+				FinSi
+			FinSi
+		FinSi
+	Fin Para
+		
+			promedioSueldosAuxiliar = sueldos_auxiliar /n
+			promedioSueldosAgregado = sueldos_agregado /n
+			promedioSueldosPrincipal = sueldos_principal /n
+			promedioBonoAuxiliar = bono_auxiliar/n 
+			promedioBonoAgregado = bono_agregado /n
+			promedioBonoPrincipal = bono_principal /n
+			
+			Escribir "Promedio de sueldos de la categoría Auxiliar:", promedioSueldosAuxiliar
+			Escribir "Promedio de sueldos de la categoría Agregado:", promedioSueldosAgregado
+			Escribir "Promedio de sueldos de la categoría Principal:", promedioSueldosPrincipal
+			Escribir "Promedio de bonos de la categoría Auxiliar:", promedioBonoAuxiliar
+			Escribir "Promedio de bonos de la categoría Agregado:", promedioBonoAgregado
+			Escribir "Promedio de bonos de la categoría Principal:", promedioBonoPrincipal
+
+FinFuncion
+//----------------------------------------------------------------------------------------------------------
+//33) Dado una serie de n cantidad de viajes dado cada pasaje y su recorrido determinar
+//	el precio de cada pasaje segun el recorrido en kilometros
+//si el recorrido es hasta 100 km el pasaje no tiene incremento
+//si el recorido es mas de 100 km el pasaje tiene un incremento
+//del 20%. Presentar el promedio y la cantidad de pasajes con recorrido
+//hasta 100km y mayor de 100 km.
+//Entrada: n=0?(leer); distancia=0.0?(leer)
+//Proceso:
+//Si distancia <= 100 Entonces
+//	precioPasaje <- distancia
+//	totalPasajesMenor100km = totalPasajesMenor100km + 1
+//Sino
+//	precioPasaje = distancia + (0.20 * distancia) 
+//	totalPasajesMayor100km = totalPasajesMayor100km + 1
+//FinSi
+//Escribir "Precio del pasaje:", precioPasaje
+//totalKilometros = totalKilometros + distancia
+//totalPasajes = totalPasajes + precioPasaje
+//FinPara
+//promedioPasajes = totalPasajes / n
+//Salida:
+//Escribir  promedioPasajes
+//Escribir  totalPasajesMenor100km
+//Escribir totalPasajesMayor100km
+funcion viajes
+	Definir n Como Entero
+    Definir totalKilometros, totalPasajes, totalPasajesMenor100km, totalPasajesMayor100km Como Real
+    totalKilometros = 0;totalPasajes= 0; totalPasajesMenor100km =0;totalPasajesMayor100km= 0
+	
+	Escribir "Ingrese la cantidad de viajes:"
+    Leer n
+	
+    Para i = 1 Hasta n Hacer
+        Escribir "Viaje ", i
+        Escribir "Ingrese la distancia en kilómetros:"
+        Leer distancia
+		
+        Si distancia <= 100 Entonces
+            precioPasaje = distancia
+            totalPasajesMenor100km = totalPasajesMenor100km + 1
+        Sino
+            precioPasaje = distancia + (0.20 * distancia) 
+            totalPasajesMayor100km = totalPasajesMayor100km + 1
+        FinSi
+        Escribir "Precio del pasaje:", precioPasaje
+        totalKilometros = totalKilometros + distancia
+        totalPasajes = totalPasajes + precioPasaje
+    FinPara
+    promedioPasajes = totalPasajes / n
+	
+    Escribir "Promedio de precios de pasajes:", promedioPasajes
+    Escribir "Cantidad de pasajes con recorrido hasta 100 km:", totalPasajesMenor100km
+    Escribir "Cantidad de pasajes con recorrido mayor de 100 km:", totalPasajesMayor100km
+FinFuncion
+//------------------------------------------------------------------------------------------------
+//34) Diseñar un algoritmo que lea y presente una serie de números distintos de cero. 
+//El algoritmo debe terminar con un valor cero que no se debe presentar.
+//Finalmente se desea obtener la cantidad y el promedio de los valores distintos de cero.
+//entrada: numero=0.0?(leer)
+//proceso:
+//Mientras numero <> 0 Hacer
+//cantidad = cantidad + 1
+//suma = suma + numero
+//Leer numero
+//FinMientras
+//
+//Si cantidad > 0 Entonces
+//	promedio = suma / cantidad
+//Sino
+//	Escribir "No ingresó valores distintos de cero."
+//FinSi
+//salida:
+//	Escribir cantidad
+//	Escribir  promedio
+funcion promedio_valores
+Definir numero, suma Como Real
+Definir cantidad Como Entero
+numero=0.0; suma=0.0; cantidad =0
+
+Escribir "Ingrese una serie de números distintos de cero :"
+Leer numero
+Mientras numero <> 0 Hacer
+	cantidad = cantidad + 1
+	suma = suma + numero
+	Leer numero
+FinMientras
+
+Si cantidad > 0 Entonces
+	promedio = suma / cantidad
+	Escribir "Cantidad de valores distintos de cero:", cantidad
+	Escribir "Promedio de los valores distintos de cero:", promedio
+Sino
+	Escribir "No ingresó valores distintos de cero."
+FinSi
+FinFuncion
+//-----------------------------------------------------------------------------------------------------------------------------
+//35) Dada una serie de números positivos lea y presente el numero. El algoritmo debe terminar con un valor negativo que no se debe presentar.
+//Finalmente se desea obtener la cantidad y el total de los números positivos múltiplos de 3.
+//entrada: numero=0?(leer)
+//proceso:
+//Mientras numero >= 0 Hacer
+//	Si numero >= 0 Entonces
+//		Escribir "Número ingresado:", numero
+//		Si numero % 3 = 0 Entonces
+//			cantidad = cantidad + 1
+//			total = total + numero
+//		FinSi
+//	FinSi
+//	Leer numero
+//FinMientras
+//salida:
+//Escribir "Cantidad de números positivos múltiplos de (3):", cantidad
+//Escribir "Total de números positivos múltiplos de (3) :", total
+
+funcion positivos
+Definir numero Como Entero
+Definir cantidad Como Entero
+Definir total Como Entero
+cantidad = 0;total = 0
+Escribir "Ingrese una serie de números positivos (termine con un número negativo):"
+Leer numero
+
+Mientras numero >= 0 Hacer
+	Si numero >= 0 Entonces
+		Escribir "Número ingresado:", numero
+		Si numero % 3 = 0 Entonces
+			cantidad = cantidad + 1
+			total = total + numero
+		FinSi
+	FinSi
+	Leer numero
+FinMientras
+
+Escribir "Cantidad de números positivos múltiplos de (3):", cantidad
+Escribir "Total de números positivos múltiplos de (3) :", total
+FinFuncion
+
 
 Algoritmo TareaN2
 	
@@ -732,8 +1020,8 @@ Algoritmo TareaN2
 	//Ejercicio18()
 	//Ejercicio19()
 	//Ejercicio21()
-	//Ejercicio22()
-	//Ejercicio23()
+	//semana
+	//año
 	//Ejercicio24()
 	//Ejercicio25()
 	//Ejercicio26()
@@ -741,5 +1029,10 @@ Algoritmo TareaN2
 	//Ejercicio28()
 	//Ejercicio29()
 	//Ejercicio30()
+        //PromedioAsignaturas 
+	//sueldos_bono
+	//viajes
+	//promedio_valores
+	//positivos
 	
 FinAlgoritmo
